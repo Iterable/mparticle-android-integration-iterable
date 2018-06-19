@@ -6,6 +6,8 @@ import android.os.Bundle;
 
 import com.mparticle.AttributionResult;
 import com.mparticle.MParticle;
+import com.mparticle.kits_core.KitIntegration;
+import com.mparticle.kits_core.ReportingMessage;
 
 import java.util.HashSet;
 import java.util.List;
@@ -13,14 +15,14 @@ import java.util.Map;
 import java.util.Set;
 
 
-public class IterableKit extends KitIntegration implements KitIntegration.ActivityListener, KitIntegration.ApplicationStateListener {
+public class IterableKit extends AbstractKitIntegration implements KitIntegration.ActivityListener, KitIntegration.ApplicationStateListener {
 
 
     private String attributionUrl;
     private Set<String> previousLinks = new HashSet<String>();
 
     @Override
-    protected List<ReportingMessage> onKitCreate(Map<String, String> settings, Context context) {
+    public List<ReportingMessage> onKitCreate(Map<String, String> settings, Context context) {
         checkForAttribution();
         return null;
     }
