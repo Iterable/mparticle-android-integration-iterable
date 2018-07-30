@@ -6,8 +6,8 @@ import android.os.Bundle;
 
 import com.mparticle.AttributionResult;
 import com.mparticle.MParticle;
-import com.mparticle.kits_core.KitIntegration;
-import com.mparticle.kits_core.ReportingMessage;
+import com.mparticle.kits.core.KitIntegration;
+import com.mparticle.kits.core.ReportingMessage;
 
 import java.util.HashSet;
 import java.util.List;
@@ -49,7 +49,7 @@ public class IterableKit extends AbstractKitIntegration implements KitIntegratio
                         if (!KitUtils.isEmpty(result)) {
                             AttributionResult attributionResult = new AttributionResult().setLink(result);
                             attributionResult.setServiceProviderId(getConfiguration().getKitId());
-                            getKitManager().onResult(attributionResult);
+                            getAttributionListener().onResult(attributionResult);
                         }
                     }
                 };
